@@ -1,0 +1,64 @@
+<style>
+    .button{
+     border-radius: 15px;
+     padding:10px;
+     background-color:#666;
+     color:white;
+    }
+    .button:hover{
+    background-color:#333;
+    }
+    table {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+     td, th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+     tr:nth-child(odd){background-color: #f2f2f2;}
+     tr:hover {background-color: #ddd;}
+    
+    </style>
+    <div style="width:100%;">
+    <div style="float:left;">
+    <h4 style="">Search By TenderId</h4>
+    </div>
+    <br>
+    <a href="index.html" style="margin-left:50%;clear:right;"><button name="back" value="back" class="button">Back</button></a>
+    <p>
+    <br>
+    Please select the date for more tenders related to that particular date.
+    <input type="text" ng-model="searchtender">
+    <input type="button" class="button" ng-click="searchByTenderId()" value="Search">
+     </p>
+     
+    <br><br>
+    <table>
+      <thead>
+    <tr>
+    <th>Tender Id</th>
+    <th>Tender Name</th>
+    <th>Department</th>	
+    <th>Publish Date</th>
+    <th>Open Date	</th>
+    <th>Closing Date</th>
+    <th>Classification</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>{{t.tenderid}}</td>
+    <td>{{t.tendername}}</td>
+    <td>{{t.department}}</td>
+    <td>{{t.publishdate}}</td>
+    <td>{{t.opendate}}</td>
+    <td>{{t.closingdate}}</td>
+    <td>{{t.classification}}</td>
+    </tr>
+    </tbody>
+    </table>
+     </div>

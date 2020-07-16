@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<head>
+<title></title>
+</head>
+<style>
+.button{
+ border-radius: 15px;
+ padding:10px;
+ background-color:#666;
+ color:white;
+}
+.button:hover{
+background-color:#333;
+}
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+ td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+ tr:nth-child(odd){background-color: #f2f2f2;}
+ tr:hover {background-color: #ddd;}
+
+</style>
+<body>
+<div style="width:100%;">
+<div style="float:left;">
+<h4 style="">Active/Cancelled/Retendered</h4>
+</div>
+<br>
+<a href="home.html" style="margin-left:50%;clear:right;"><button name="back" value="back" class="button">Back</button></a>
+<br>
+<br>
+ <form >
+<fieldset style="width:70%;background-color:silver;height:180px;">
+<legend style="font-size:20px;"> <b> Search</b></legend>
+Tender Status: <select ng-model="searchstatus">
+  <option value="cancel">  Cancelled</option>
+<option value="active">Active</option>
+</select>
+<br>
+<br>
+Enter Captcha: <input type="text" style="margin-left:15%;">
+</fieldset>
+<br>
+
+<input type="reset" value="Reset" style="margin-left:50%;"class="button">
+<input type="submit" value="Submit"  style="margin-left:10%;"class="button" ng-click="status()">
+</form>
+<br><br>
+<table>
+  <thead>
+<tr>
+<th>Tender Id</th>
+<th>Tender Name</th>
+<th>Department</th>	
+<th>Publish Date</th>
+<th>Open Date	</th>
+<th>Closing Date</th>
+<th>Classification</th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="t in tenders">
+<td><a href="index.html">{{t.tenderid}}</a></td>
+<td>{{t.tendername}}</td>
+<td>{{t.department}}</td>
+<td>{{t.publishdate}}</td>
+<td>{{t.opendate}}</td>
+<td>{{t.closingdate}}</td>
+<td>{{t.classification}}</td>
+</tr>
+</tbody>
+</table>
+</body>

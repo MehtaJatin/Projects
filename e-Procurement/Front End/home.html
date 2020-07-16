@@ -1,0 +1,118 @@
+<style>
+    table, th, td {
+      border-collapse: collapse;
+      padding:8px;
+
+    }
+    th
+    {
+        width:25%;
+     padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #f2f2f2;
+      color: black;
+    }
+    
+    </style>
+<div style="width:100%;">
+<div style="width:70%;float:left;">
+<h4>Welcome to eProcurement System</h4>
+The eProcurement System of India enables the Tenderers to download the Tender Schedule free of cost and then submit the bids online through this portal.
+<br>
+<br>
+<table class="first">
+<tr style="background-color:lighter">
+<td style="border-radius:5px; background-color:grey; font-size:20px;">
+<i>Latest Tender</i>
+</td>
+</tr>
+
+<tr>
+<th>Tender Title</th>
+<th>Reference No.</th>
+<th>Closing Date</th>
+<th>Bid Opening Date</th>
+<th>Classification</th>
+</tr>
+</table>
+<marquee direction="up"onmouseover="stop()" onmouseout="start()">
+<table>
+<tbody>
+<tr ng-repeat="t in tenders">
+    <td style="width:180px;"><a href="" ng-click="bid(t)">{{t.tendername}}</a></td>
+    <td style="width:150px;">{{t.tenderid}}</td>
+    <td style="width:180px;">{{t.closingdate}}</td>
+    <td style="width:180px;">{{t.opendate}}</td>
+    <td>{{t.classification}}</td>
+</tr>
+</tbody>
+</table>
+</marquee>
+<br>
+<br>
+<table class="first">
+        <tr style="background-color:lighter">
+        <td style="border-radius:5px; background-color:grey; font-size:20px;">
+        <i>Latest Tender<i>
+        </td>
+        </tr>
+        
+        <tr>
+        <th>Tender Title</th>
+        <th>Reference No.</th>
+        <th>Closing Date</th>
+        <th>Bid Opening Date</th>
+        <th>Classification</th>
+        </tr>
+    </table>
+    <marquee direction="up" onmouseover="stop()" onmouseout="start()">
+    <table>
+        <tbody>
+            <tr ng-repeat="t in tenders">
+                <td style="width:180px;"><a href="" ng-click="bid(t)">{{t.tendername}}</a></td>
+                <td style="width:150px;">{{t.tenderid}}</td>
+                <td style="width:180px;">{{t.closingdate}}</td>
+                <td style="width:180px;">{{t.opendate}}</td>
+                <td>{{t.classification}}</td>
+            </tr>        </tbody>
+        </table>
+    </marquee>
+</div>
+<div style="float:right;margin-top:50px;">
+<div style="background-color:silver;" >
+<br>
+<div ng-show="!loggeduser()">
+<p style="background-color:#333;width:40%;height:30px;color:white;border-radius:10px;margin-left:20px;text-align:center;padding-top:2px;">User Login</p>
+<div align ="center"  style="opacity: 0.8;color:white;height:250px;padding:15px;box-shadow: 5px 10px 5px  #888888;">
+<form>
+LogIn Id: 
+<input type="text" style="color:black;" ng-model="user" required></input>
+<br><br><br>
+Password:
+<input type="Password" style="color:black;" ng-model="password" required></input><br><br>
+<input  style="color:black;" type="Submit" value="LogIn" ng-click="login()" required></input>
+</form>
+<br>
+<p><a href="" ng-click="signup()">Online Bidder Enrollment</a></p>
+<p><a href="forget.html">Forget Password</a></p>
+</div>
+</div>
+<div ng-show="loggeduser()" align="center">
+    Welcome {{userinfo}}
+    <br>
+    <input type="button" value="Logout" ng-click="logout()">
+</div>
+</div>
+<br>
+<br>
+<form>
+<div style="background-color:silver;border-radius:25px;box-shadow: 5px 10px 5px  #888888;">
+<p style="padding:30px;">   Tender Search<br>
+<input type="text" ng-model="searchid" name="search" required>
+<input type="submit" ng-click="searchtender()" value="GO">
+</p>
+</form>
+</div>
+</div>
+</div>

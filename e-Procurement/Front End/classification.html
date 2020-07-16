@@ -1,0 +1,82 @@
+<style>
+.button{
+ border-radius: 15px;
+ padding:10px;
+ background-color:#666;
+ color:white;
+}
+.button:hover{
+background-color:#333;
+}
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+ td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+ tr:nth-child(odd){background-color: #f2f2f2;}
+ tr:hover {background-color: #ddd;}
+
+</style>
+<div style="width:100%;">
+<div style="float:left;">
+<h4 style="">Tender Search By Classification</h4>
+</div>
+<br>
+<a href="index.html" style="margin-left:50%;clear:right;"><button name="back" value="back" class="button">Back</button></a>
+<p>
+<br>
+Please select the Classification from the drop down box below for more tenders related to that particular Form Of Contract.
+ </p>
+ <form >
+<fieldset style="width:70%;background-color:silver;height:120px;">
+<legend style="font-size:20px;"> <b> Tender search by Classification:</b></legend>
+Select Classification	:<select ng-model="searchclassification" required>
+                          <option value="Furniture">Furniture</option>
+                          <option value="Electrical">Electrical</option>
+                          <option value="Computer">Computer</option>
+                          <option value="Contruction">Contruction</option>
+                          <option value="Mess">Mess</option>
+                          <option value="Science_Lab">Science_Lab</option>
+                      </select>
+    <br>
+<br>
+Enter Captcha: <img src=""alt="not found" id="print"></img><br><br>
+<input type="text" style="margin-left:15%;"  id="get" required>
+</fieldset>
+<br>
+
+<input type="reset" value="Reset" style="margin-left:50%;"class="button">
+<input type="submit" value="Submit"  style="margin-left:10%;"class="button" onclick="check()" ng-click="searchTender()" >
+</form>
+<br><br>
+<table>
+  <thead>
+<tr>
+<th>Tender Id</th>
+<th>Tender Name</th>
+<th>Department</th>	
+<th>Publish Date</th>
+<th>Open Date	</th>
+<th>Closing Date</th>
+<th>Classification</th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="t in tenders">
+<td><a href="index.html">{{t.tenderid}}</a></td>
+<td>{{t.tendername}}</td>
+<td>{{t.department}}</td>
+<td>{{t.publishdate}}</td>
+<td>{{t.opendate}}</td>
+<td>{{t.closingdate}}</td>
+<td>{{t.classification}}</td>
+</tr>
+</tbody>
+</table>
+ </div>

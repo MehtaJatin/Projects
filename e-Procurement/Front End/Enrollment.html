@@ -1,0 +1,135 @@
+<style> 
+    input[type=text],textarea,select,date,month,input[type=password],input[type=date]{
+      width: 130px;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      background-color: white;
+      background-position: 10px 10px; 
+      background-repeat: no-repeat;
+      
+      transition:width 0.4s ease-out;
+    }
+    .button:hover{
+    background-color:#666;
+    }
+    input[type=text]:focus {
+      width:25%;
+    }
+    input[type=date]:focus {
+      width:25%;
+    }
+    input[type=password]:focus {
+      width:25%;
+    }
+    textarea:focus {
+      width:25%;
+    }
+    .button{
+     border-radius: 15px;
+     padding:10px;
+     background-color:#333;
+     color:white;
+    }
+    input:required {
+  box-shadow: 4px 4px 20px #666;
+}
+    </style>
+
+<div style="width:100%;">
+<h3>Online Bidder Enrollment of Corporate/Bidder</h3>
+<div style="width:70%;float:left;">
+<form>
+<div style="background-color:silver;text-align:center">
+<br> <font  style="margin-right:13%;">Login Id:</font>&nbsp;&nbsp;<input type="text" ng-model="vender.email" required><br><br>
+<font  style="margin-right:3%;">Correspondence Email:</font><input type="text" ng-model="vender.cemail" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" required><br><br>
+<font  style="margin-right:12%;">Password :</font><input type="password"  ng-model="vender.pass" required><br><br>
+<font  style="margin-right:11%;">Mobile No.:</font><input type="text" maxlength="10" ng-model="vender.phnumber" required><br><br>
+</div>
+<br>
+<br>
+<div style="background-color:silver;text-align:center">
+<fieldset>
+<legend>Company Details</legend>
+<font  style="margin-right:8%;">Company Name:</font><input type="text"  ng-model="vender.cname" required><br><br>
+<font  style="margin-right:5%;">Registration Number:</font><input type="text"  ng-model="vender.regno" required><br><br>
+<font  style="margin-right:5%;">Registered Address:</font><textarea cols="17" rows="2"  ng-model="vender.regaddr" required></textarea><br><br>	
+<font  style="margin-right:13%;">Bidder Type:</font><input type="radio" value="Indian" name="citizen" ng-model="vender.citizen" required>Indian<input type="radio" value="Foreign" name="citizen">Foreign<br><br>
+<font  style="margin-right:17%;">City:</font><input type="text" ng-model="vender.city" required><br><br>
+<font  style="margin-right:15%;" required>State:</font>
+<select ng-model="vender.state">
+    <option>Select State</option>
+<option value="1">Jammu and Kashmir</option>
+<option value="2">Himachal Pradesh</option>
+<option value="3">Punjab</option>
+<option value="4">Chandigarh (UT)</option>
+<option value="5">Uttaranchal</option>
+<option value="6">Haryana</option>
+<option value="7">Delhi</option>
+<option value="8">Rajasthan</option>
+<option value="9">Uttar Pradesh</option>
+<option value="10">Bihar</option>
+<option value="11">Sikkim</option>
+<option value="12">Arunachal Pradesh</option>
+<option value="13">Nagaland</option>
+<option value="14">Manipur</option>
+<option value="15">Mizoram</option>
+<option value="16">Tripura</option>
+<option value="17">Meghalaya</option>
+<option value="18">Assam</option>
+<option value="19">West Bengal</option>
+<option value="20">Jharkhand</option>
+<option value="21">Orissa</option>
+<option value="22">Chhattishgarh</option>
+<option value="23">Madhya Pradesh</option>
+<option value="24">Gujarat</option>
+<option value="25">Daman and Diu (UT)</option>
+<option value="26">Dadra and Nagar Haveli (UT)</option>
+<option value="27">Maharashtra</option>
+<option value="28">Andhra Pradesh</option>
+<option value="29">Karnataka</option>
+<option value="30">Goa</option>
+<option value="31">Lakshadweep (UT)</option>
+<option value="32">Kerala</option>
+<option value="33">Tamil Nadu</option>
+<option value="34">Pondicherry (UT)</option>
+<option value="35">Andaman and Nicobar (UT)</option>
+<option value="36">Telangana</option>
+<option value="37">Andhra Pradesh (New)</option>
+
+		</select><br><br>
+<font  style="margin-right:10%;">Postal Code:</font><input type="text" ng-model="vender.pincode" required><br><br>
+<font  style="margin-right:10%;">Pan Number:</font><input type="text" ng-model="vender.pannumber" required><br><br>
+<font  style="margin-right:5%;">Establishment Year:</font><input type="text" ng-model="vender.eyear" required/><br><br>	
+ </div>
+ <br>
+ <div style="background-color:silver;text-align:center">
+ <fieldset>
+<legend>Contact Details</legend>
+<font  style="margin-right:9%;">Contact Name:</font><input type="text" ng-model="vender.name" required><br><br>	
+<font  style="margin-right:10%;">Date Of Birth:</font><input type="date" ng-model="vender.dob" required><br><br>
+<font  style="margin-right:11%;">Designation	:</font><input type="text" ng-model="vender.des" required><br><br>
+<font  style="margin-right:15%;">Phone: </font><input type="text" ng-model="vender.phone" required><br><br>
+</div>
+<br>
+<div style="margin-left:80%">
+<a href="/index"><input type="button" value="Back" class="button" style="margin-right:10%;"/></a>
+<input type="Submit" value="Submit" class="button" ng-click="register()"/>
+</div>
+</form>
+ </div>
+ <div style="float:left;width:28%;margin-left:2%">
+ <div style="border:1px solid;">
+ <h4 style="background-color:#999;margin-top:0px;">Email ID and Mobile No Policy</h4>
+ <font size="2px">
+Email and mobile must comply following requisites,
+<ol type="1">
+<li>As Mobile and Email are the modes of correspondence, ensure that mobile no and email id provided are correct.</li>
+<li>The verification codes are valid for 900 seconds from the time Send Verification Code is clicked</li>
+</ol>
+</font>
+ </div>
+ </div>
+ </div>
+

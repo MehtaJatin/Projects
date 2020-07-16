@@ -1,0 +1,79 @@
+<style> 
+        input[type=text],textarea,select,date,month,input[type=password],input[type=date]{
+          width: 130px;
+          box-sizing: border-box;
+          border: 2px solid #ccc;
+          border-radius: 4px;
+          font-size: 16px;
+          background-color: white;
+          background-position: 10px 10px; 
+          background-repeat: no-repeat;
+          
+          transition:width 0.4s ease-out;
+        }
+        .button:hover{
+        background-color:#666;
+        }
+        input[type=text]:focus {
+          width:25%;
+        }
+        input[type=date]:focus {
+          width:25%;
+        }
+        input[type=password]:focus {
+          width:25%;
+        }
+        textarea:focus {
+          width:25%;
+        }
+        .button{
+         border-radius: 15px;
+         padding:10px;
+         background-color:#333;
+         color:white;
+        }
+        input:required {
+      box-shadow: 4px 4px 20px #666;
+    }
+        </style>
+    
+    <div style="width:100%;">
+            <br>
+                <h3 style="float:left;">Welcome {{userInfo}}</h3>
+                <div style="margin-left:80%;">
+                        <a href="/index"><input type="button" value="Back" class="button" style="margin-right:10%;"/></a>
+                </div>
+                <br>
+                <h2 style="">You are bidding for {{tenderinfo.tendername}} Tender</h2>
+                <div style="width:50%;margin-left:25%;" >
+                <div style="background-color:silver;text-align:center; border-radius:10px;">
+                      <br>  <font  style="margin-right:12%;">Tender Id : </font>{{tenderinfo.tenderid}}
+        <br><br>
+        <font  style="margin-right:13%;">Department :  </font>{{tenderinfo.department}}
+        <br><br>
+        <font  style="margin-right:8%;">Tender publish Date : </font> {{tenderinfo.publishdate|date: "yyyy-MM-dd"}}
+        <br><br>
+        <font  style="margin-right:10%;">Tender open date : </font>  {{tenderinfo.opendate|date: "yyyy-MM-dd"}}
+        <br><br>
+        <font  style="margin-right:8%;">Tender closing date :</font> {{tenderinfo.closingdate|date: "yyyy-MM-dd"}}
+        <br><br>
+        <font  style="margin-right:13%;">Classification : </font> {{tenderinfo.classification}}
+        <br><br>
+        <font  style="margin-right:13%;">Specification : </font> {{tenderinfo.specification}}
+        <br>
+        <br>
+        <font  style="margin-right:13%;">Quantity :  </font> {{tenderinfo.quantity}}
+        <br>
+        <br>
+        <font  style="margin-right:13%;">Base Price : </font> {{tenderinfo.base}}
+        <br><br>
+    <form>
+        Enter Bid value:
+        <input type="text" ng-model="bidvalue">
+        <br>
+        <br>
+        <input type="submit" class="button" ng-click="bid()">
+    </form>
+</div>
+</div>
+</div>

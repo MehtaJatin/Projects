@@ -1,0 +1,48 @@
+<style>
+    .button{
+     border-radius: 15px;
+     padding:10px;
+     background-color:#666;
+     color:white;
+    }
+    .button:hover{
+    background-color:#333;
+    }
+    table {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+     td, th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+     tr:nth-child(odd){background-color: #f2f2f2;}
+     tr:hover {background-color: #ddd;}
+    
+    </style>
+    <div style="width:100%;">
+    <div style="float:left;">
+    <h4 style="">Active Tenders</h4>
+    </div>
+    <br>
+    <br><br>
+    <table>
+      <thead>
+    <tr>
+    <th>Tender Id</th>
+    <th>Vender ID</th>
+    <th>Closing Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="t in bids">
+    <td>{{t.tenderid}}</td>
+    <td>{{t.venderid}}</td>
+    <td>{{t.closingdate}}</td>
+   
+    </tbody>
+    </table>
+     </div>

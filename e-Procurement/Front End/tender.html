@@ -1,0 +1,92 @@
+<style> 
+        input[type=text],textarea,select,date,month,input[type=password],input[type=date]{
+          width: 130px;
+          box-sizing: border-box;
+          border: 2px solid #ccc;
+          border-radius: 4px;
+          font-size: 16px;
+          background-color: white;
+          background-position: 10px 10px; 
+          background-repeat: no-repeat;
+          
+          transition:width 0.4s ease-out;
+        }
+        .button:hover{
+        background-color:#666;
+        }
+        input[type=text]:focus {
+          width:25%;
+        }
+        input[type=date]:focus {
+          width:25%;
+        }
+        input[type=password]:focus {
+          width:25%;
+        }
+        textarea:focus {
+          width:25%;
+        }
+        .button{
+         border-radius: 15px;
+         padding:10px;
+         background-color:#333;
+         color:white;
+        }
+    
+        input:required {
+      box-shadow: 4px 4px 20px #666;
+    }
+        </style>
+    
+    <div style="width:100%;">
+        <br>
+            <h3 style="float:left;">Register New Tender</h3>
+            <div style="margin-left:80%;">
+                    <a href="/index"><input type="button" value="Back" class="button" style="margin-right:10%;"/></a>
+            </div>
+            <br>
+            <div style="width:60%;margin-left:20%;" >
+            <form>
+            <div style="background-color:silver;text-align:center; border-radius:10px;">
+                    <br> <br><font  style="margin-right:13%;">Tender Id : </font><input type="text" ng-model="tender.tenderid" required>
+                <br><br>
+                <font  style="margin-right:10%;">Tender Name :</font>  <input type="text" ng-model="tender.tendername" required>
+                <br><br>
+                <font  style="margin-right:11%;"> Department :</font>  <input type="text" ng-model="tender.department" required>
+                <br><br>
+                <font  style="margin-right:11%;">Publishment :</font> <input type="date" ng-model="tender.publishdate" required>
+                <br><br>
+                <font  style="margin-right:12%;">Open Date :</font>  <input type="date" ng-model="tender.opendate" required>
+                <br><br>
+                <font  style="margin-right:10%;">Closing Date :</font> <input type="date" ng-model="tender.closingdate" required>
+                <br><br>
+                <font  style="margin-right:10%;">Classification :</font>  <select ng-model="tender.classification" required>
+                                    <option value="Furniture">Furniture</option>
+                                    <option value="Electrical">Electrical</option>
+                                    <option value="Computer">Computer</option>
+                                    <option value="Contruction">Contruction</option>
+                                    <option value="Mess">Mess</option>
+                                    <option value="Science_Lab">Science_Lab</option>
+                                    </select>
+        <br><br>
+        <font  style="margin-right:13%;">Quantity :</font> <input type="text" ng-model="tender.quantity" required>
+        <br><br>
+        <font  style="margin-right:10%;">Specification :</font> <input type="text" ng-model="tender.specification" required>
+        <br><br>
+        <font  style="margin-right:12%;">Base Price :</font> <input type="text" ng-model="tender.base" required>
+        <br><br><br>
+        <font  style="margin-right:12%;">Tender Status: <select ng-model="tender.status">
+          <option value="cancel">  Cancelled</option>
+        <option value="active">Active</option>
+        </select>
+        <br><br><br>
+        <input type="submit" value="Tender Register" ng-click="tenderRegister()"><br><br>
+        </div>
+    </form>
+
+
+        </div>
+        
+    <br>
+    <br>
+</div>

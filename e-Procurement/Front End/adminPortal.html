@@ -1,0 +1,93 @@
+<style>
+    .button{
+     border-radius: 15px;
+     padding:10px;
+     background-color:#666;
+     color:white;
+    }
+    .button:hover{
+    background-color:#333;
+    }
+    table {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+     td, th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+     tr:nth-child(odd){background-color: #f2f2f2;}
+     tr:hover {background-color: #ddd;}
+    
+    </style>
+<div width="100%">
+    <h2>Active Tenders</h2>
+    <br><br>
+    <input type="checkbox" ng-click="enableEdit()">Mark to edit.
+    <div ng-show="edit">
+    <table>
+        <thead>
+            <tr>
+                <th>TenderId</th>
+                <th>Tender Name</th>
+                <th>Department</th>
+                <th>Publish Date</th>
+                <th>Open Date</th>
+                <th>Closing Date</th>
+                <th>Classification</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="t in tenders">
+                <td><b ng-model="tid">{{t.tenderid}}</b></td>
+                <td><input type="text" value={{t.tendername}} ng-model="t.tendername"></a></td>
+                <td><input type="text" value={{t.department}} ng-model="t.department"></td>
+                <td><input type="date" ng-model="t.publishdate" >{{t.publishdate}}</td>
+                <td><input type="date" ng-model="t.opendate" >{{t.opendate}}</td>
+                <td><input type="date" ng-model="t.closingdate" >{{t.closingdate}}</td>
+                <td><input type="text" value={{t.classification}} ng-model="t.classification"></td>
+                <td><button  ng-click="updatetender(t)">Update</button>
+                    <button ng-click="deltender(t.tenderid)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+  </div>
+  
+  <div ng-show="!edit">
+    <table>
+        <thead>
+            <tr>
+                <th>TenderId</th>
+                <th>Tender Name</th>
+                <th>Department</th>
+                <th>Publish Date</th>
+                <th>Open Date</th>
+                <th>Closing Date</th>
+                <th>Classification</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="t in tenders">
+                <td><b ng-model="tid">{{t.tenderid}}</b></td>
+                <td><a href="">{{t.tendername}}</a></td>
+                <td>{{t.department}}</td>
+                <td>{{t.publishdate}}</td>
+                <td>{{t.opendate}}</td>
+                <td>{{t.closingdate}}</td>
+                <td>{{t.classification}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    
+    <br>
+  </div>
+    <br>
+    <br>
+  <button class="button" ng-click="tRegister()">Register new Tender</button>
+</div>

@@ -1,0 +1,135 @@
+(function()
+{
+    var app=angular.module('myApp',['ngCookies','ui.router']);
+    app.run(function($rootScope,$location,$state)
+    {
+        $state.transitionTo('home');
+    });
+    app.config(['$stateProvider','$urlRouterProvider',
+    function($stateProvider,$urlRouterProvider)
+{
+    $stateProvider
+       .state('mis',
+       {
+           url:'/mis',
+           templateUrl:'mis.html',
+           controller:'misCtrl'
+       })
+       .state('home',
+       {
+           url:'/home',
+           templateUrl:'home.html',
+           controller:'homeCtrl'
+       })
+       .state('tender',
+       {
+           url:'/tender',
+           templateUrl:'tender.html',
+           controller:'tenderCtrl'
+       })
+       .state('closingdate',
+       {
+           url:'/closingdate',
+           templateUrl:'closingdate.html',
+           controller:'closingdateCtrl'
+       })
+       .state('classification',
+             {
+            url:'/classification',
+            templateUrl:'classification.html',
+            controller:'classificationCtrl'     
+             })
+       .state('statustender',
+       {
+           url:'/statustender',
+           templateUrl:'status.html',
+           controller:'statusCtrl'
+       })  
+       .state('canceltender',
+       {
+           url:'/canceltender',
+           templateUrl:'canceltender.html',
+           controller:'cancelCtrl'
+       }) 
+        .state('adminportal',
+        {
+            url:'/adminportal',
+            templateUrl:'adminportal.html',
+            controller:'adminportalCtrl'
+        })
+        .state('bidding',
+        {
+            url:'/bidding.html',
+            templateUrl:'bidding.html',
+            controller:'biddingCtrl'
+        })   
+        .state('bidawards',
+        {
+            url:'/bidawards',
+            templateUrl:'bidawards.html',
+            controller:'bidawardsCtrl'
+        })
+        .state('searchtender',
+        {
+            url:'/searchtender',
+            templateUrl:'searchtender.html',
+            controller:'searchtenderCtrl'
+        })
+       .state('activetender',
+       {
+           url:'/activetender',
+           templateUrl:'activetender.html',
+           controller:'activetenderCtrl'
+       })  
+       .state('enrollment',
+       {
+           url:'/Enrollment',
+           templateUrl:'Enrollment.html',
+           controller:'enrollmentCtrl'
+       });
+       $urlRouterProvider.otherwise('/home');
+       
+}]);
+app.controller('mainCtrl',function($scope,$http,$rootScope,$stateParams,$state)
+{
+           $scope.alltender=function()
+           {
+               $state.transitionTo('classification');
+           }
+
+           $scope.adminPortal=function()
+           {
+               $state.transitionTo('mis');
+           }
+           $scope.activeten=function()
+           {
+               $state.transitionTo('activetender');
+           }
+           $scope.closeten=function()
+           {
+               $state.transitionTo('closingdate');
+           }
+           $scope.bidaward=function()
+           {
+               $state.transitionTo('bidawards');
+           }
+           $scope.serten=function()
+           {
+               $state.transitionTo('searchtender');
+           }
+           $scope.statusten=function()
+           {
+               $state.transitionTo("statustender");
+           }
+           $scope.cancelten=function()
+           {
+               $state.transitionTo("canceltender");
+           }
+
+});
+
+
+
+
+}
+)();

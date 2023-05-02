@@ -47,9 +47,9 @@ classifier.fit(X_train,Y_train)
 
 from shutil import copyfile
 
-dst='C:/Users/Lenovo/Desktop/positive/'
-pst='C:/Users/Lenovo/Desktop/negative/'
-path = 'C:/Users/Lenovo/Desktop'
+dst='./result/positive/'
+pst='./result/negative/'
+path = './result'
 import glob
 for filename in glob.glob(os.path.join(path, '*.txt')):
     src = filename
@@ -59,7 +59,7 @@ for filename in glob.glob(os.path.join(path, '*.txt')):
     m=cv.transform(p).toarray()
     y_pred=classifier.predict(m)
     if y_pred==0:
-        shutil.copy(src, dst, follow_symlinks=True)
+        copyfile(src, dst, follow_symlinks=True)
 
 
 from sklearn.metrics import confusion_matrix

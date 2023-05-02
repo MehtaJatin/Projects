@@ -11,8 +11,8 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 import re
 import nltk
-dataset=pd.read_csv(r'C:\Users\Singhai\PycharmProjects\TextUtils\textutils\textutils\codebeautify.tsv',delimiter='\t',quoting=3)
-sarset=pd.read_csv(r'C:\Users\Singhai\PycharmProjects\TextUtils\textutils\textutils\sarcasm.csv',delimiter='\t',quoting=3)
+dataset=pd.read_csv(r'C:\Users\ankit\Desktop\test_jatin\Projects\Article Analysis Application\textutils\textutils\codebeautify.tsv',delimiter='\t',quoting=3)
+sarset=pd.read_csv(r'C:\Users\ankit\Desktop\test_jatin\Projects\Article Analysis Application\textutils\textutils\sarcasm.csv',delimiter='\t',quoting=3)
 # print(dataset)
 
 nltk.download('stopwords')
@@ -86,9 +86,9 @@ def upload(request):
     #file = default_storage.open(file_name)
     #file_url = default_storage.url(file_name)
     from shutil import copyfile
-    dst = 'C:/Users/Singhai/Desktop/positive/'
-    pst = 'C:/Users/Singhai/Desktop/negative/'
-    path = 'C:/Users/Singhai/Desktop'
+    dst = './result/positive/'
+    pst = './result/negative/'
+    path = './result/'
     import glob
     for filename in glob.glob(os.path.join(path, '*.txt')):
         src = filename
